@@ -51,5 +51,3 @@ if os.path.isfile(rcfile):
     FUNCTION_PATH = get_rc_entry("FUNCTION_PATH")
 else:
     FUNCTION_PATH = "NONE_YET"
-
-    sys.exit(-1)
