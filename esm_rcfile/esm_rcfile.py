@@ -48,6 +48,10 @@ def get_rc_entry(key):
     Returns
     -------
     str: Value for key
+
+    Raises
+    ------
+    KeyError : Raised if key cannot be found in the rcfile
     """
     if os.path.isfile(rcfile):
         with open(rcfile) as rc:
@@ -55,8 +59,14 @@ def get_rc_entry(key):
                 line = line.strip()
                 if line.split("=", 1)[0] == key.upper():
                     return line.split("=", 1)[1]
+            raise KeyError("No value for %s found in esmtoolsrc file!" % key)
     print (rcfile + " not found, exiting")
+    # PG: Probably a not a good idea to trigger a sys.exit --> what happens if
+    # this function is used from a library rather than the command line
+    # interface?
     sys.exit(-1)
+    # Suggestion:
+    raise OSError("The file esmtoolsrc file was not found!")
 
 def import_rc_file():
     """
@@ -76,6 +86,7 @@ def import_rc_file():
     print (rcfile + " not found, exiting")
 
 
+# PG: Should this be in a if __name__ == "__main__" ?
 if os.path.isfile(rcfile):
     FUNCTION_PATH = get_rc_entry("FUNCTION_PATH")
 else:
