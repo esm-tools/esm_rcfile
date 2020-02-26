@@ -13,10 +13,6 @@ def set_rc_entry(key, value):
     key : str
     value : str
 
-    Returns
-    -------
-    None
-
     Note
     ----
     Using this functions modifies the ``rcfile``; which is stored in the
@@ -47,11 +43,13 @@ def get_rc_entry(key):
 
     Returns
     -------
-    str: Value for key
+    str
+        Value for key
 
     Raises
     ------
-    KeyError : Raised if key cannot be found in the rcfile
+    KeyError
+        Raised if key cannot be found in the rcfile
     """
     if os.path.isfile(rcfile):
         with open(rcfile) as rc:
@@ -75,6 +73,7 @@ def import_rc_file():
     Returns
     -------
     dict
+        A dictionary representation of the rcfile
     """
     if os.path.isfile(rcfile):
         rcdict = {}
