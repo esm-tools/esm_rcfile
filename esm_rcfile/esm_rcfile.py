@@ -1,10 +1,27 @@
-"""Main module."""
+"""Functions to set, get, and use entries stored in the esmtoolsrc file."""
 import os, sys
-    
+
 rcfile = os.path.expanduser("~") + "/.esmtoolsrc"
 
 
 def set_rc_entry(key, value):
+    """
+    Sets values in ``esmtoolsrc``
+
+    Parameters
+    ----------
+    key : str
+    value : str
+
+    Returns
+    -------
+    None
+
+    Note
+    ----
+    Using this functions modifies the ``rcfile``; which is stored in the
+    current user's home directory.
+    """
     all_lines = [key + "=" + value]
 
     if os.path.isfile(rcfile):
@@ -21,6 +38,17 @@ def set_rc_entry(key, value):
 
 
 def get_rc_entry(key):
+    """
+    Gets a specific entry
+
+    Parameters
+    ----------
+    key : str
+
+    Returns
+    -------
+    str: Value for key
+    """
     if os.path.isfile(rcfile):
         with open(rcfile) as rc:
             for line in rc.readlines():
@@ -31,6 +59,13 @@ def get_rc_entry(key):
     sys.exit(-1)
 
 def import_rc_file():
+    """
+    Gets current values of the esmtoolsrc file
+
+    Returns
+    -------
+    dict
+    """
     if os.path.isfile(rcfile):
         rcdict = {}
         with open(rcfile) as rc:
