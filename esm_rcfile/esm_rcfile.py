@@ -4,12 +4,6 @@ import os, sys
 rcfile = os.path.expanduser("~") + "/.esmtoolsrc"
 
 
-def get_paths():
-    function_path = read_rc_entry("FUNCTION_PATH")
-    namelist_path = read_rc_entry("NAMELIST_PATH")
-    runscript_path = read_rc_entry("RUNSCRIPT_PATH")
-    return function_path, namelist_path, runscript_path
-
 def set_rc_entry(key, value):
     all_lines = [key + "=" + value]
 
