@@ -42,6 +42,9 @@ You can also get the entire rcfile as a dict::
 
     >>> rcdict = import_rc_file()
 
+
+API Documentation
+-----------------
 """
 import os
 

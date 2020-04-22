@@ -1,14 +1,8 @@
-Welcome to ESM RCFile's documentation!
-======================================
-
 .. include:: ../README.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   usage
-   api
+.. automodule:: esm_rcfile.esm_rcfile
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 Indices and tables
 ==================
