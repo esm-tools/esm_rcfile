@@ -1,17 +1,14 @@
 Welcome to ESM RCFile's documentation!
 ======================================
 
+.. include:: ../README.rst
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   readme
-   installation
    usage
-   modules
-   contributing
-   authors
-   history
+   api
 
 Indices and tables
 ==================

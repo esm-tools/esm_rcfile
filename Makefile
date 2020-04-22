@@ -65,7 +65,8 @@ coverage: ## check code coverage quickly with the default Python
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/esm_rcfile.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ esm_rcfile
+	sphinx-apidoc -TM -o docs/ esm_rcfile
+	mv docs/esm_rcfile.rst docs/api.rst
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

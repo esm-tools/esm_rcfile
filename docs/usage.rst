@@ -1,7 +1,2 @@
-=====
-Usage
-=====
-
-To use ESM RCFile in a project::
-
-    import esm_rcfile
+.. automodule:: esm_rcfile.esm_rcfile
+    :noindex:
