@@ -43,6 +43,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/dbarbi/esm_rcfile',
-    version="3.1.2",
+    version="4.0.0",
     zip_safe=False,
 )
