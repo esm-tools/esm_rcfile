@@ -47,12 +47,36 @@ API Documentation
 -----------------
 """
 import os
+import esm_tools
 
 rcfile = os.path.expanduser("~") + "/.esmtoolsrc"
 
 
 class EsmRcfileError(Exception):
     pass
+
+
+class EsmToolsDir(str):
+
+    def __init__(self, path_type):
+        self.path_type = path_type
+
+    def __str__(self):
+        return self.find_path()
+
+    def __add__(self, add_string):
+        return self.find_path() + add_string
+
+    def find_path(self):
+
+        if self.path_type=="FUNCTION_PATH":
+            return esm_tools.get_config_filepath("") + "/"
+        elif self.path_type=="NAMELIST_PATH":
+            return esm_tools.get_namelist_filepath("") + "/"
+        elif self.path_type=="RUNSCRIPT_PATH":
+            return esm_tools.get_runscript_filepath("") + "/"
+        else:
+            raise Exception("Incorrect path type!")
 
 
 def set_rc_entry(key, value):
