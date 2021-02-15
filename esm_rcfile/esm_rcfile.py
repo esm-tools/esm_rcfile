@@ -222,6 +222,9 @@ def import_rc_file():
 
 
 # PG: Should this be in a if __name__ == "__main__" ?
+# MA: The following lines are most likely never reached since the work
+# from PG in implementing the venv. It is probably wise to remove them
+# in the next cleanup.
 if os.path.isfile(rcfile):
     FUNCTION_PATH = get_rc_entry("FUNCTION_PATH", "NONE_YET")
 else:
